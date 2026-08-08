@@ -18,27 +18,41 @@ const Carousel = () => {
     },
     {
       id: 3,
-      title: "Delicious Dish 4",
+      title: "Delicious Dish 3",
       image: "/food-4.JPG",
       review: "The perfect end to a heavy meal.",
     },
     // The duplicates that make the illusion possible
     {
       id: 4,
-      title: "Delicious Dish 1",
+      title: "Delicious Dish 4",
       image: "/food-3.PNG",
       review: "Absolutely incredible! The flavors are perfectly balanced.",
     },
     {
       id: 5,
-      title: "Delicious Dish 2",
+      title: "Delicious Dish 5",
       image: "/food-5.PNG",
       review: "Flaky, buttery, and cooked to perfection.",
     },
     {
       id: 6,
-      title: "Delicious Dish 4",
-      image: "/food-5.PNG",
+      title: "Delicious Dish 1",
+      image: "/food-1.PNG",
+      review: "The perfect end to a heavy meal.",
+    },
+
+    {
+      id: 7,
+      title: "Delicious Dish 2",
+      image: "/food-2.JPG",
+      review: "The perfect end to a heavy meal.",
+    },
+
+    {
+      id: 8,
+      title: "Delicious Dish 3",
+      image: "/food-4.JPG",
       review: "The perfect end to a heavy meal.",
     },
   ];
@@ -47,7 +61,7 @@ const Carousel = () => {
   const [selectedSlide, setSelectedSlide] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(true);
 
-  const maxIndex = 3;
+  const maxIndex = 5; // The last index of the original slides (not counting duplicates)
 
   // =========================================
   // THE ILLUSION: Teleporting back to the start
@@ -77,7 +91,7 @@ const Carousel = () => {
 
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => prevIndex + 1);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, [selectedSlide]);
