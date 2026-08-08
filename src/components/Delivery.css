@@ -170,3 +170,35 @@
     font-size: 18px;
   }
 }
+
+/* =========================================
+   MOBILE RESPONSIVE (iPHONES & PHONES)
+   ========================================= */
+@media (max-width: 768px) {
+  .delivery-section {
+    padding: 40px 15px;
+  }
+
+  .delivery-container {
+    flex-direction: column-reverse; /* Put the heading/text on top, logos below */
+    gap: 30px;
+    text-align: center;
+  }
+
+  .delivery-title {
+    font-size: 32px;
+  }
+
+  .delivery-text {
+    font-size: 18px;
+  }
+
+  .delivery-logos {
+    width: 100%;
+  }
+
+  .delivery-badge {
+    width: 100%;
+    max-width: 280px;
+  }
+}

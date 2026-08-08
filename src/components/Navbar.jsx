@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/transparent-logo.png";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -13,17 +23,28 @@ const Navbar = () => {
           width="80"
           className="logo-image"
         />
-        {/* We wrap the text in this div so it sits next to the image! */}
         <div className="logo-text">
           <h1>Heaven</h1>
           <span>Turkish Restaurant</span>
         </div>
       </div>
 
-      <ul className="navbar-links">
+      {/* Hamburger 3-bar button for mobile */}
+      <button
+        className={`hamburger ${isOpen ? "open" : ""}`}
+        onClick={toggleMenu}
+        aria-label="Toggle navigation menu"
+      >
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </button>
+
+      <ul className={`navbar-links ${isOpen ? "open" : ""}`}>
         <li>
           <NavLink
             to="/"
+            onClick={closeMenu}
             className={({ isActive }) =>
               isActive ? "light-gold-text active" : "light-gold-text"
             }
@@ -34,6 +55,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/menu"
+            onClick={closeMenu}
             className={({ isActive }) =>
               isActive ? "light-gold-text active" : "light-gold-text"
             }
@@ -44,6 +66,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/gallery"
+            onClick={closeMenu}
             className={({ isActive }) =>
               isActive ? "light-gold-text active" : "light-gold-text"
             }
@@ -54,6 +77,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/about"
+            onClick={closeMenu}
             className={({ isActive }) =>
               isActive ? "light-gold-text active" : "light-gold-text"
             }
@@ -64,6 +88,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/contact"
+            onClick={closeMenu}
             className={({ isActive }) =>
               isActive ? "light-gold-text active" : "light-gold-text"
             }

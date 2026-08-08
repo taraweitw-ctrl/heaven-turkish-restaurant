@@ -189,3 +189,24 @@
     padding-left: 0; /* Remove slide effect on mobile for better centering */
   }
 }
+
+/* =========================================
+   MOBILE RESPONSIVE (iPHONES & PHONES)
+   ========================================= */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 35px;
+    padding: 0 20px 30px;
+  }
+
+  .footer-brand h2 {
+    font-size: 42px;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+}

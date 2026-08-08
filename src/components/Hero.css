@@ -1,58 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&display=swap");
 
-/* 1. Make the outer container relative so absolute elements align to it */
+/* 1. Outer Container */
 .hero-section {
   top: -10px;
   position: relative;
   width: 100%;
-  /* Force it to fill the screen minus your 90px navbar */
   min-height: calc(100vh - 90px);
+  overflow: hidden;
 }
 
-/* 2. Position the peach background freely behind your content */
+/* 2. Peach/Gold Background Glow */
 .peach-background {
   position: absolute;
   top: 10%;
-  right: 4%; /* Tweak this to move the box left/right */
-  width: 600px; /* Set a specific width for your square/rectangle */
-  height: 350px; /* Set a specific height */
-
-  /* 1. Use your solid peach color */
+  right: 4%;
+  width: 600px;
+  height: 350px;
   background-color: #ffefca;
-
-  /* 2. Round the physical corners slightly before blurring */
   border-radius: 40px;
-
-  /* 3. The Magic: Blurs the rectangle so the flat edges fade out completely */
   filter: blur(50px);
-
   z-index: 0;
   pointer-events: none;
 }
 
 .bg-squiggle {
   position: absolute;
-  top: -30px; /* Adjust this to move the squiggle up or down */
-  /* FORCE full screen width even if trapped in a 1200px box */
+  top: -30px;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
   width: 100vw;
-
-  /* Length control: increase height so it stretches as far as you need */
   min-height: 120%;
-  object-fit: fill; /* Allows it to stretch vertically without clipping horizontal edges */
-
+  object-fit: fill;
   z-index: 0;
   pointer-events: none;
 }
 
-/* 3. Ensure the main content container sits ON TOP of the background */
+/* 3. Main Content Container Desktop */
 .hero-container {
   position: relative;
-  z-index: 1; /* Sits above z-index: 0 */
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -62,34 +51,58 @@
   gap: 40px;
 }
 
-/* Left Side (Image) */
+/* Left Side (Image Desktop) */
 .hero-left {
-  flex: 1; /* Tells the left side to take up equal space */
-  transform: translateY(
-    -20px
-  ); /* Moves the image up slightly for a better visual balance */
+  flex: 1;
+  transform: translateY(-20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-image {
   width: 100%;
-  border: 5px solid #882210; /* The dark brown border */
+  border: 5px solid #882210;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Right Side (Text) */
+.hero-food {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border: 8px solid #882210;
+  border-radius: 16px;
+}
+
+/* Right Side (Text Desktop) */
 .hero-right {
-  flex: 1; /* Tells the right side to take up equal space */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Aligns all text to the left */
+  align-items: flex-start;
   transform: translateY(-50px);
-  text-wrap: wrap; /* Ensures text wraps properly on smaller screens */
+  text-wrap: wrap;
+}
+
+.hero-title {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: #882210;
+  margin-top: 0;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  width: 100%;
+}
+
+.text-right {
+  display: block;
+  text-align: right;
 }
 
 .hero-description {
-  font-family:
-    "Beiruti", sans-serif; /* A placeholder for your Arabic-style font */
+  font-family: "Beiruti", sans-serif;
   font-size: 18px;
   color: #000000;
   line-height: 1.6;
@@ -97,11 +110,37 @@
   padding: 0 30px;
 }
 
+.food-caption {
+  font-family: "Beiruti", sans-serif;
+  font-size: 18px;
+  color: #4d4d4d;
+  line-height: 1.4;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Heart Graphic */
+.gold-heart {
+  font-family: "Luxurious Script", cursive !important;
+  font-size: 130px !important;
+  font-weight: normal;
+  display: inline-block;
+  transform: translateY(15px);
+  line-height: 1;
+  padding: 0px 35px;
+  margin-left: -20px;
+  background: linear-gradient(90deg, #bc751f 0%, #d8ad1e 50%, #bc751f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 /* The Order Button */
 .order-btn {
   align-self: center;
   display: inline-block;
-  background-color: #882210; /* Your dark red */
+  background-color: #882210;
   color: #ffffff;
   font-family: "Asap Condensed", sans-serif;
   font-size: 20px;
@@ -111,74 +150,122 @@
   letter-spacing: 1px;
   padding: 12px 35px;
   border-radius: 8px;
-  border: 3px solid #d8ad1e; /* Solid gold border */
+  border: 3px solid #d8ad1e;
   transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 2; /* Ensures it sits above the peach background */
+  z-index: 2;
 }
 
 .order-btn:hover {
-  /* Fills with your gold gradient on hover */
   background: linear-gradient(90deg, #efa852 0%, #ffdf77 50%, #efa852 100%);
-  color: #882210; /* Text flips to dark red */
+  color: #882210;
   border-color: transparent;
-  transform: translateY(-2px); /* Slight lift effect */
+  transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.hero-food {
-  width: 100%; /* Takes up the full width of the left column */
-  height: 320px; /* Set this to whatever height looks best for your crop! */
-  object-fit: cover; /* Crops the image to fit the width/height perfectly without stretching */
+/* =========================================
+   MOBILE RESPONSIVE (SIDE-BY-SIDE GRID LAYOUT)
+   ========================================= */
 
-  border: 8px solid #882210; /* Adds the dark brown border */
-  border-radius: 16px; /* Rounds the corners slightly */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+  }
 
-  /*box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Optional: keeps a nice drop shadow */
-}
+  /* Converts layout to a 2-column grid on mobile */
+  .hero-container {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 20px 15px;
+  }
 
-/* 1. Ensure the title takes up the full width so right-align works */
-.hero-title {
-  font-family: "Asap Condensed", sans-serif;
-  font-size: 40px;
-  font-weight: bold;
-  color: #882210;
-  margin-top: 0;
-  margin-bottom: 20px;
-  line-height: 1.2;
-  width: 100%; /* Add this line! */
-}
+  /* Unwraps desktop containers so child elements position freely in grid */
+  .hero-left,
+  .hero-right {
+    display: contents;
+  }
 
-/* 2. Pushes the second line to the right */
-.text-right {
-  display: block;
-  text-align: right;
-}
+  /* 1. TOP: Title spans full width */
+  .hero-title {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    font-size: 25px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    text-align: center;
+  }
 
-.food-caption {
-  font-family:
-    "Beiruti", sans-serif; /* A placeholder for your Arabic-style font */
-  font-size: 18px;
-  color: #4d4d4d;
-  line-height: 1.4;
-}
-/* 3. The shrinking fix for the heart */
-.gold-heart {
-  font-family: "Luxurious Script", cursive !important;
-  font-size: 130px !important;
-  font-weight: normal;
-  display: inline-block;
+  .text-right {
+    text-align: center;
+    display: inline;
+  }
 
-  transform: translateY(15px); /* Keeps it hanging down */
+  .gold-heart {
+    font-size: 65px !important;
+    padding: 0 4px;
+    margin-left: 0;
+    transform: translateY(4px);
+  }
 
-  line-height: 1;
-  padding: 0px 35px;
-  margin-left: -20px;
+  /* 2. MIDDLE LEFT: Image */
+  .hero-food {
+    grid-column: 1;
+    grid-row: 2;
+    width: 110px;
+    height: 110px;
+    border: 3px solid #882210;
+    border-radius: 12px;
+    object-fit: cover;
+  }
 
-  background: linear-gradient(90deg, #bc751f 0%, #d8ad1e 50%, #bc751f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  /* 3. MIDDLE RIGHT: Paragraph Beside Image */
+  .hero-description {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 0;
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.35;
+    text-align: left;
+  }
+
+  .food-caption {
+    display: none;
+  }
+
+  /* 4. BOTTOM: Order Button centered across full width */
+  .order-btn {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: center;
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 10px 28px;
+  }
+
+  .peach-background {
+    width: 90vw;
+    left: 20vw;
+    top: 5%;
+    height: 250px;
+    border-radius: 60px;
+    filter: blur(40px);
+    z-index: -1; /* Keeps it behind the heading and carousel */
+  }
+
+  .bg-squiggle {
+    top: -60px;
+    left: 50%;
+    right: 60%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    min-height: 120%;
+    object-fit: fill;
+    z-index: -1; /* Keeps it behind the heading and carousel */
+  }
 }

@@ -340,3 +340,30 @@
     font-size: 18px;
   }
 }
+
+/* =========================================
+   MOBILE RESPONSIVE (iPHONES & PHONES)
+   ========================================= */
+@media (max-width: 768px) {
+  .gallery-container {
+    padding: 40px 15px;
+  }
+
+  .gallery-title {
+    font-size: 36px;
+  }
+
+  .gallery-subtitle {
+    font-size: 18px;
+  }
+
+  /* Fit single-column grid neatly on smaller phone screens */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 20px;
+  }
+
+  .gallery-card {
+    height: 240px;
+  }
+}

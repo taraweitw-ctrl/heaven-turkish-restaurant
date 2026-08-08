@@ -207,3 +207,84 @@ html {
     justify-content: center;
   }
 }
+
+/* =========================================
+   MOBILE RESPONSIVENESS (STICKY COMPACT SIDEBAR)
+   ========================================= */
+
+@media (max-width: 900px) {
+  .menu-container {
+    flex-direction: column;
+    padding: 20px 15px;
+    gap: 25px;
+  }
+
+  /* Make the sidebar sticky on mobile */
+  .menu-sidebar {
+    position: sticky;
+    top: 90px; /* Sticks right below your navbar */
+    z-index: 100;
+    width: 100%;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border-width: 2px;
+    box-shadow: 0 4px 15px rgba(136, 34, 16, 0.2);
+  }
+
+  /* Hide the large title and heavy order wrapper on mobile to save vertical space */
+  .sidebar-title,
+  .menu-sidebar .order-now-wrapper {
+    display: none;
+  }
+
+  /* Compact horizontally scrolling category links */
+  .sidebar-links {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent scrollbars from cluttering the view */
+  .sidebar-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-links li {
+    flex: 0 0 auto;
+  }
+
+  .sidebar-links li a {
+    font-size: 14px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: block;
+    background-color: rgba(136, 34, 16, 0.08);
+  }
+
+  .sidebar-links li a:hover,
+  .sidebar-links li a.active {
+    background-color: #882210;
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-content {
+    width: 100%;
+  }
+
+  .menu-item-header {
+    flex-wrap: wrap;
+  }
+
+  .item-desc {
+    max-width: 100%;
+  }
+}
