@@ -1,0 +1,191 @@
+/* =========================================
+   FOOTER MAIN CONTAINER
+   ========================================= */
+
+.site-footer {
+  background-color: #882210; /* Dark Red */
+  color: #ffffff; /* White text */
+  font-family: "Beiruti", sans-serif;
+  padding-top: 60px;
+
+  /* Gold gradient border on top to separate it from the page */
+  border-top: 6px solid;
+  border-image: linear-gradient(90deg, #efa852 0%, #ffdf77 50%, #efa852 100%) 1;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 20px 40px;
+}
+
+.footer-section {
+  flex: 1;
+}
+
+/* =========================================
+   GOLD TEXT GRADIENT UTILITY
+   ========================================= */
+.gold-text-gradient {
+  background: linear-gradient(90deg, #efa852 0%, #ffdf77 50%, #efa852 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* =========================================
+   BRAND SECTION (LEFT)
+   ========================================= */
+
+.footer-brand {
+  margin-bottom: 20px;
+}
+
+.footer-brand h2 {
+  margin: 0;
+  font-size: 50px;
+  font-family: "Seaweed Script", cursive;
+  font-weight: normal;
+  line-height: 1;
+  /* Apply Gold Gradient to the logo text */
+  background: linear-gradient(90deg, #efa852 0%, #ffdf77 50%, #efa852 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-brand span {
+  font-family: "Quicksand", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: block;
+  margin-top: -5px;
+}
+
+.footer-blurb {
+  line-height: 1.6;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #f2f2f2;
+}
+
+.delivery-partners {
+  font-size: 15px;
+  color: #ddd;
+}
+
+.delivery-partners span {
+  font-weight: bold;
+  color: #ffdf77; /* Solid gold for emphasis */
+}
+
+/* =========================================
+   QUICK LINKS SECTION (MIDDLE)
+   ========================================= */
+
+.footer-heading {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+
+  /* Apply Gold Gradient to Headings */
+  background: linear-gradient(90deg, #efa852 0%, #ffdf77 50%, #efa852 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+/* Turns to gold gradient on hover */
+.footer-links a:hover {
+  background: linear-gradient(90deg, #efa852 0%, #ffdf77 50%, #efa852 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: 8px; /* Cool little slide effect */
+}
+
+/* =========================================
+   CONTACT SECTION (RIGHT)
+   ========================================= */
+
+.footer-contact-info p {
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+  font-size: 16px;
+  color: #f2f2f2;
+}
+
+.footer-contact-info strong {
+  color: #ffffff;
+}
+
+.footer-ig-link {
+  color: #ffdf77; /* Solid gold */
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.2s ease;
+}
+
+.footer-ig-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* =========================================
+   COPYRIGHT BOTTOM BAR
+   ========================================= */
+
+.footer-bottom {
+  background-color: #6a180b; /* Slightly darker red for contrast */
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE (MOBILE)
+   ========================================= */
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .footer-links {
+    align-items: center;
+  }
+
+  .footer-links a:hover {
+    padding-left: 0; /* Remove slide effect on mobile for better centering */
+  }
+}

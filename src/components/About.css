@@ -1,0 +1,182 @@
+/* =========================================
+   ABOUT PAGE MAIN CONTAINER
+   ========================================= */
+
+.about-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* =========================================
+   HERO / HEADER SECTION
+   ========================================= */
+
+.about-hero {
+  text-align: center;
+}
+
+.about-title {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 48px;
+  color: #882210; /* Brand dark red */
+  margin: 0 0 10px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.about-subtitle {
+  font-family: "Beiruti", sans-serif;
+  font-size: 26px;
+  margin: 0;
+}
+
+/* Reusing the global gold gradient class */
+.real-gold-gradient {
+  background: linear-gradient(90deg, #bc751f 0%, #d8ad1e 50%, #bc751f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+}
+
+/* =========================================
+   PHILOSOPHY SECTION (TEXT + IMAGE)
+   ========================================= */
+
+.peach-background-philosophy {
+  position: absolute;
+  top: 10%;
+  left: -5%; /* Aligns it to the left side where the text is */
+  width: 600px;
+  height: 500px;
+  background-color: #ffefca;
+  border-radius: 40px;
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+.about-philosophy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* Left Side Text */
+.philosophy-text {
+  flex: 1.1;
+}
+
+.philosophy-text h2 {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 42px;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.philosophy-text p {
+  font-family: "Beiruti", sans-serif;
+  font-size: 21px;
+  line-height: 1.7;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.philosophy-text p:last-child {
+  margin-bottom: 0;
+}
+
+.philosophy-text strong {
+  color: #882210;
+  font-weight: 700;
+}
+
+/* Right Side Image & Accent Border */
+.philosophy-image-wrapper {
+  flex: 0.9;
+  position: relative;
+}
+
+.philosophy-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+  position: relative;
+  z-index: 2; /* Keeps image above the gold border */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.image-accent-border {
+  position: absolute;
+  top: 25px;
+  left: -25px;
+  width: 100%;
+  height: 100%;
+  border: 4px solid #d8ad1e;
+  border-radius: 16px;
+  z-index: 1; /* Pushes the border behind the image */
+}
+
+/* =========================================
+   MINI VISUAL SHOWCASE GRID
+   ========================================= */
+
+.about-showcase {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.showcase-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.showcase-img:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(136, 34, 16, 0.2);
+}
+
+/* =========================================
+   RESPONSIVE LAYOUT (MOBILE & TABLET)
+   ========================================= */
+
+@media (max-width: 900px) {
+  .about-philosophy {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .image-accent-border {
+    top: 15px;
+    left: 15px;
+    width: calc(100% - 30px); /* Adjusts offset for smaller screens */
+  }
+
+  .showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .showcase-img {
+    height: 300px;
+  }
+}

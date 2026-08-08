@@ -1,0 +1,172 @@
+/* =========================================
+   DELIVERY COMPONENT (CONTAINERLESS BLUR)
+   ========================================= */
+
+.delivery-section {
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Keeps the soft blurred glow contained within the section */
+}
+
+/* THE BLUR TRICK:
+   Creates a soft, borderless peach/yellow spot glow that bleeds smoothly into the white background.
+*/
+.delivery-blur-aura {
+  position: absolute;
+  width: 90%;
+  max-width: 1200px;
+  height: 280px;
+  background: #ffefca;
+  border-radius: 40px;
+  filter: blur(40px); /* Heavy Gaussian blur trick for zero hard edges */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Foreground Container (No borders, background, or shadows) */
+.delivery-container {
+  position: relative;
+  z-index: 2; /* Sits cleanly above the blurred background */
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* Vertical Stacked Logo Container */
+.delivery-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Individual Delivery Badges */
+.delivery-badge {
+  width: 240px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.delivery-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+/* Uber Eats Branding */
+.delivery-badge.uber-eats {
+  background-color: #000000;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.uber-eats .uber-white {
+  color: #ffffff;
+}
+.uber-eats .eats-green {
+  color: #06c167;
+}
+
+/* DoorDash Branding */
+.delivery-badge.doordash {
+  background-color: #ffffff;
+  color: #ff3008;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+/* Skip The Dishes Branding */
+.delivery-badge.skip {
+  background-color: #ffffff;
+  color: #e21b22;
+  font-family: Impact, "Arial Black", sans-serif;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+}
+.skip .skip-main {
+  font-size: 28px;
+  font-style: italic;
+}
+.skip .skip-sub {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* Right Content Area */
+.delivery-content {
+  flex: 1.3;
+}
+
+.delivery-title {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 42px;
+  color: #882210; /* Dark red header color */
+  margin: 0 0 16px 0;
+  letter-spacing: 1px;
+}
+
+.delivery-text {
+  font-family: "Beiruti", Georgia, serif;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #2c2c2c;
+  margin: 0;
+}
+
+.delivery-text strong {
+  color: #882210;
+  font-weight: 700;
+}
+
+/* =========================================
+   RESPONSIVE (MOBILE)
+   ========================================= */
+
+@media (max-width: 768px) {
+  .delivery-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .delivery-blur-aura {
+    height: 400px; /* Expands glow vertically for stacked mobile layout */
+  }
+
+  .delivery-title {
+    font-size: 34px;
+  }
+
+  .delivery-text {
+    font-size: 18px;
+  }
+}

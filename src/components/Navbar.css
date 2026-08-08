@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #882210; /* Dark brown background */
+  border-bottom: 8px solid; /* The gold accent line */
+  border-image: linear-gradient(90deg, #bc751f 0%, #d8ad1e 50%, #bc751f 100%) 1;
+  height: 90px;
+  padding: 0 40px;
+  font-family: "Asap Condensed", sans-serif;
+  position: relative; /* Creates a stacking context */
+  z-index: 9999 !important; /* Puts the navbar above all other page content */
+  width: 100%;
+}
+
+.navbar-logo {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  align-items: center;
+  gap: 15px; /* Puts a nice gap between the image and the text */
+  text-decoration: none;
+}
+
+.logo-image {
+  width: 70px; /* Adjust this number to make the logo bigger or smaller */
+  height: auto;
+  object-fit: contain;
+}
+
+.navbar-logo h1 {
+  margin: 0;
+  font-size: 50px;
+  font-family:
+    "Seaweed Script", cursive; /* A placeholder for your cursive font */
+  font-weight: normal;
+}
+
+.navbar-logo span {
+  font-size: 12px;
+  letter-spacing: 0px;
+  margin-top: -20px; /* You can make this negative (e.g., -2px) if you need it even closer! */
+  margin-left: 20px; /* Adjust this to move the text closer or further from the logo */
+}
+
+/* =========================================
+   NAVBAR LOGO STYLING
+   ========================================= */
+
+.navbar-logo {
+  color: white;
+  display: flex;
+  flex-direction: row; /* Changed from column to row */
+  align-items: center;
+  gap: 15px; /* Space between the image and the text */
+  text-decoration: none;
+}
+
+.logo-image {
+  width: 70px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* New wrapper to stack the text on top of each other */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-text h1 {
+  margin: 0;
+  font-size: 50px;
+  font-family: "Seaweed Script", cursive;
+  font-weight: normal;
+  line-height: 1; /* Keeps the text tight together */
+}
+
+.logo-text span {
+  font-family: "Quicksand", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0px;
+  margin-top: -10px; /* Pulls the subtitle closer to the cursive text */
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.navbar-links li {
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+}
+
+/* Recreating the darker box behind 'HOME' */
+.navbar-links li.active {
+  background-color: #4a150b;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: normal;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: white;
+}
+
+.light-gold-text {
+  /* 1. Create the gradient background */
+  background: linear-gradient(90deg, #efa852 0%, #ffdf77 50%, #efa852 100%);
+
+  /* 2. Clip the background to only show inside the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* 3. Make the actual text letters transparent */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.gold-text {
+  /* 1. Create the gradient background */
+  background: linear-gradient(90deg, #efa852 0%, #ffdf77 50%, #efa852 100%);
+
+  /* 2. Clip the background to only show inside the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* 3. Make the actual text letters transparent */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Adding .nav-links makes this rule stronger than your standard links! */
+.nav-links a.active {
+  background-color: #882210 !important;
+  color: white !important;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.nav-links a.active:hover {
+  color: white !important;
+}
+
+/* =========================================
+   ACTIVE PAGE & HOVER STYLING (GOLD ACTIVE)
+   ========================================= */
+
+/* 1. Base Link State (Saves space so navbar doesn't jump) */
+ul.navbar-links li a {
+  padding: 8px 20px !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  background-color: transparent !important;
+}
+
+/* 2. The Active State (Gold background + Dark Red text) */
+ul.navbar-links li a.active {
+  background-color: #d8ad1e !important; /* Gold background */
+  color: #882210 !important; /* Dark red text */
+
+  /* Emboldens text visually without altering layout dimensions */
+  text-shadow:
+    0.5px 0 0 #882210,
+    -0.5px 0 0 #882210 !important;
+
+  /* Safely overrides gradient text fills without vendor-prefix warnings */
+  background-clip: border-box !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+/* 3. Hover state when hovering over the ACTIVE tab */
+ul.navbar-links li a.active:hover {
+  color: #882210 !important;
+  -webkit-text-fill-color: #882210 !important;
+}
+
+/* 4. Hover state for INACTIVE tabs */
+ul.navbar-links li a:not(.active):hover {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}

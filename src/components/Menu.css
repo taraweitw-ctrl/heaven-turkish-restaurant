@@ -1,0 +1,209 @@
+/* Enable smooth scrolling for the entire page so the anchor links glide! */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================================
+   MASTER MENU LAYOUT
+   ========================================= */
+.menu-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* CRITICAL: Prevents sidebar from stretching full height */
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+/* =========================================
+   STICKY SIDEBAR
+   ========================================= */
+.menu-sidebar {
+  position: sticky;
+  top: 100px; /* Adjust this so it doesn't hide behind your navbar */
+
+  width: 250px;
+  background-color: #ffefca; /* Peach background */
+  padding: 30px;
+  border-radius: 16px;
+  border: 4px solid;
+  border-image: linear-gradient(90deg, #bc751f 0%, #d8ad1e 50%, #bc751f 100%) 1; /* Your real gold border */
+  box-shadow: 0 10px 25px rgba(136, 34, 16, 0.15);
+}
+
+.sidebar-title {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 32px;
+  color: #882210;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #882210;
+  padding-bottom: 10px;
+}
+
+.sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar-links a {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 22px;
+  color: #882210;
+  text-decoration: none;
+  transition:
+    transform 0.2s,
+    color 0.2s;
+  display: block;
+}
+
+.sidebar-links a:hover {
+  color: #bc751f; /* Gold on hover */
+  transform: translateX(5px); /* Nudges text to the right on hover */
+}
+
+/* =========================================
+   ORDER NOW BUTTON (SIDEBAR)
+   ========================================= */
+
+.order-now-wrapper {
+  margin-top: 40px; /* Gives some breathing room below the menu categories */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.order-now-btn {
+  display: block;
+  width: 100%; /* Stretches the button to match the sidebar width */
+  background-color: #882210;
+  color: #ffffff;
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center; /* Keeps the text perfectly centered */
+  letter-spacing: 1px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 2px solid #d8ad1e;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.order-now-btn:hover {
+  background: linear-gradient(90deg, #efa852 0%, #ffdf77 50%, #efa852 100%);
+  color: #882210;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================
+   MAIN MENU CONTENT
+   ========================================= */
+.menu-content {
+  flex: 1; /* Takes up all remaining space */
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* Space between major sections */
+}
+
+.menu-section {
+  scroll-margin-top: 120px; /* Ensures the title isn't hidden under the navbar when you click a jump link */
+}
+
+.section-title {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 42px;
+  color: #882210;
+  margin-top: 0;
+  margin-bottom: 30px;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #bc751f 0%, #d8ad1e 50%, #bc751f 100%) 1;
+  padding-bottom: 10px;
+}
+
+.menu-items-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Space between individual items */
+}
+
+/* =========================================
+   INDIVIDUAL MENU ITEMS
+   ========================================= */
+.menu-item-header {
+  display: flex;
+  align-items: baseline; /* Aligns text perfectly at the bottom */
+  width: 100%;
+}
+
+.item-name {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 26px;
+  color: #882210;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* This creates the cool dotted line between the name and price */
+.item-dots {
+  flex: 1;
+  border-bottom: 2px dotted #d8ad1e;
+  margin: 0 15px;
+  opacity: 0.6;
+}
+
+.item-price {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+
+  /* Your gradient gold text */
+  background: linear-gradient(90deg, #bc751f 0%, #d8ad1e 50%, #bc751f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.item-desc {
+  font-family: "Beiruti", sans-serif;
+  font-size: 18px;
+  color: #555;
+  margin: 5px 0 0 0;
+  line-height: 1.4;
+  font-weight: 300;
+  max-width: 85%;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 900px) {
+  .menu-container {
+    flex-direction: column; /* Stacks sidebar on top for phones */
+  }
+
+  .menu-sidebar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .sidebar-links {
+    flex-direction: row;
+    flex-wrap: wrap; /* Allows links to wrap to new lines on mobile */
+    justify-content: center;
+  }
+}

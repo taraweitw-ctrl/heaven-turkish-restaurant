@@ -1,0 +1,282 @@
+/* =========================================
+   CONTACT PAGE MAIN LAYOUT
+   ========================================= */
+
+.contact-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px 100px;
+  /* Font family removed here so your global Beiruti/Asap fonts inherit properly */
+}
+
+.contact-title {
+  text-align: center;
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 48px;
+  color: #882210; /* Brand dark red */
+  margin-bottom: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* =========================================
+   LEFT SIDE: CONTACT INFO
+   ========================================= */
+
+.contact-info {
+  flex: 1;
+  color: #333333;
+  font-family: "Beiruti", sans-serif; /* Website body font */
+  font-size: 20px; /* Scaled up slightly to match the About page */
+  line-height: 1.6;
+}
+
+.contact-intro {
+  margin-bottom: 30px;
+}
+
+/* =========================================
+   REUSABLE YELLOW BLURRED GLOW
+   ========================================= */
+
+.yellow-glow-wrapper {
+  position: relative;
+  z-index: 1; /* Keeps the text clickable and above the glow */
+}
+
+.yellow-glow-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%; /* Spreads nicely behind the container */
+  height: 120%;
+  /* The signature gold/yellow color with a soft fade out */
+  background-color: #ffefca;
+  filter: blur(40px); /* Creates the out-of-focus background effect */
+  z-index: -1; /* Pushes the glow behind the text */
+  pointer-events: none; /* Prevents the invisible box from blocking links/clicks */
+}
+
+.info-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.info-item .icon {
+  font-size: 22px;
+  margin-top: 2px;
+  color: #d8ad1e; /* Gold accent for icons */
+}
+
+.info-item p {
+  margin: 0;
+}
+
+.info-item strong {
+  font-weight: 700;
+  color: #882210; /* Dark red for emphasis */
+}
+
+.ig-link {
+  color: #bc751f; /* Warm gold link instead of Facebook blue */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.ig-link:hover {
+  color: #882210;
+  text-decoration: underline;
+}
+
+.contact-delivery {
+  margin-top: 20px;
+}
+
+.contact-delivery strong {
+  color: #882210;
+}
+
+/* =========================================
+   RIGHT SIDE: CONTACT FORM
+   ========================================= */
+
+.contact-form-wrapper {
+  flex: 1.2;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.form-row label {
+  width: 70px;
+  color: #555;
+  font-family: "Beiruti", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  padding-top: 12px;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row textarea {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: "Beiruti", sans-serif;
+  font-size: 17px;
+  outline: none;
+  background-color: #fcfcfc;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Gold glow on focus instead of teal */
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: #d8ad1e;
+  box-shadow: 0 0 8px rgba(216, 173, 30, 0.3);
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row-date .date-inputs {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+}
+
+.form-row-date input {
+  width: 50%;
+}
+
+.form-row-date input::placeholder {
+  color: #aaa;
+}
+
+/* Submit Button */
+.submit-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.send-btn {
+  background-color: #882210; /* Solid dark red */
+  color: #ffffff;
+  border: 2px solid #882210;
+  border-radius: 6px;
+  padding: 12px 45px;
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+}
+
+/* Inverts to a white button with red text on hover */
+.send-btn:hover {
+  background-color: #ffffff;
+  color: #882210;
+  border-color: #882210;
+  box-shadow: 0 4px 12px rgba(136, 34, 16, 0.2);
+}
+
+/* =========================================
+   RESPONSIVE LAYOUT (MOBILE & TABLET)
+   ========================================= */
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .contact-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-row label {
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .form-row-date .date-inputs {
+    width: 100%;
+  }
+
+  .submit-row {
+    justify-content: center;
+  }
+
+  .send-btn {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   MAP SECTION
+   ========================================= */
+
+.contact-map-wrapper {
+  margin-top: 60px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ddd;
+}
+
+.contact-map-wrapper iframe {
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .contact-map-wrapper {
+    margin-top: 50px;
+  }
+
+  .contact-map-wrapper iframe {
+    height: 350px; /* Make it slightly shorter on mobile */
+  }
+}

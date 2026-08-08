@@ -1,0 +1,134 @@
+/* =========================================
+   LOCATION & HOURS SECTION (FULL WIDTH)
+   ========================================= */
+
+.location-section {
+  width: 100%;
+  background-color: #882210; /* Your signature dark red/brown */
+  padding: 80px 40px; /* Increased side padding so the image breathes */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.location-heading {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 48px;
+  color: white;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 50px;
+  font-weight: normal;
+  text-align: center;
+}
+
+/* 1. THE MASTER WRAPPER */
+.location-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Vertically centers the text with the image */
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1200px; /* Lets the section span nicely on big monitors */
+  gap: 60px;
+}
+
+/* 2. LEFT SIDE (The 2/3 Text Column) */
+.location-text-side {
+  flex: 2; /* This tells flexbox to take up twice as much space as the image! */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+/* 3. RIGHT SIDE (The 1/3 Image Column) */
+.location-image-side {
+  flex: 1; /* This tells flexbox to take up exactly 1/3 of the space */
+  display: flex;
+  justify-content: flex-end; /* Pushes the image nicely to the right */
+}
+
+/* The Image Styling */
+.interior-photo {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+
+  /* 1. Remove the flat border completely */
+  border: none;
+
+  /* 2. Set the "thickness" of your new border using padding */
+  padding: 4px;
+
+  /* 3. Paint the real gold gradient into that padded space */
+  background: linear-gradient(90deg, #bc751f 0%, #d8ad1e 50%, #bc751f 100%);
+
+  /* 4. Round the corners of both the gradient background and the image */
+  border-radius: 16px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Individual Data Blocks */
+.info-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.info-block h3 {
+  font-family: "Asap Condensed", sans-serif;
+  font-size: 32px;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: normal;
+
+  /* THE REAL GOLD GRADIENT UNDERLINE */
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #bc751f 0%, #d8ad1e 50%, #bc751f 100%) 1;
+  padding-bottom: 10px;
+}
+
+.info-block p {
+  /* Locks in your body font */
+  font-family: "Beiruti", sans-serif;
+  font-size: 22px;
+  color: white;
+  line-height: 1.6;
+  margin: 5px 0;
+  font-weight: 300; /* Makes the Beiruti font look a bit more elegant */
+}
+
+.phone-number {
+  margin-top: 20px !important;
+  color: #d8ad1e !important;
+  font-size: 26px !important;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 968px) {
+  /* On tablets and smaller, we stack everything vertically */
+  .location-content-wrapper {
+    flex-direction: column;
+  }
+
+  .location-text-side {
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+  }
+
+  .location-image-side {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
